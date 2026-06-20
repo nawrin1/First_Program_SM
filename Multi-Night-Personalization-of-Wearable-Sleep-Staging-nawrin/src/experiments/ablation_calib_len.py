@@ -35,7 +35,7 @@ def run_calibration_ablation(num_subjects_for_ablation=10):
                 continue
             # Calibration: 
             calib_nights = test_nights[1:1 + calib_len]
-            # Test: remaining nights after calibration nights (at least one night)
+            
             test_eval = test_nights[1 + calib_len:]
             if len(test_eval) == 0:
                 continue

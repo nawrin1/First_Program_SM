@@ -44,16 +44,16 @@ def extract_embeddings(encoder, nights, global_mean, global_std):
             X_np, y_np = night['windowed']
             X_t = torch.tensor(X_np, dtype=torch.float32).to(device)
             
-            # 🟢 Apply the static training pool statistics to normalize incoming samples
+           
             X_t = (X_t - global_mean) / global_std
             
-            # Extract representations
+           
             embs = encoder(X_t)
             
             embeddings_list.append(embs.cpu().numpy())
             labels_list.append(y_np)
             
-    # Concatenate lists into final unified numpy arrays
+  
     all_embeddings = np.concatenate(embeddings_list, axis=0)
     all_labels = np.concatenate(labels_list, axis=0)
     

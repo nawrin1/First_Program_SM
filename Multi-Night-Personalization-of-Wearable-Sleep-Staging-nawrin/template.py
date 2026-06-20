@@ -69,13 +69,11 @@ for filepath in list_of_files:
 
     filedir, filename = os.path.split(path_to_file)
 
-    # Create directories if missing
+    
     if filedir != "":
         os.makedirs(filedir, exist_ok=True)
 
-    # Create file only if:
-    # 1. file does not exist
-    # 2. OR file exists but empty
+    
     if (
         not os.path.exists(path_to_file)
         or os.path.getsize(path_to_file) == 0
